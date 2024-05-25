@@ -1,6 +1,31 @@
 // import React from 'react'
 import "./Home.css";
+import { useEffect, useState } from "react";
+
 const Home = () => {
+  const [fill, setFill] = useState([
+    {
+      name: "",
+      email: "",
+      text: "",
+    },
+  ]);
+
+  const fillData = () => {
+    setFill({
+      name: "saksham saleem",
+      email: "mohammadsaksham@pakistan.com",
+      text: " me maqsad nahi bhuluga , kanak hamari dushman hai",
+    });
+  };
+  const clearData = () => {
+    setFill({ name: "", email: "", text: "" });
+  };
+  
+  useEffect(() => {
+    
+  }, []);
+
   return (
     <div className="home">
       <div>
@@ -26,22 +51,24 @@ const Home = () => {
             <div className="email-form">
               <fieldset>
                 <legend>Name</legend>
-                <input type="text" />
+                <input type="text" value={fill.name} />
               </fieldset>
 
               <fieldset>
                 <legend>Email</legend>
 
-                <input type="text" />
+                <input type="text" value={fill.email} />
               </fieldset>
 
               <fieldset>
                 <legend>TEXT</legend>
 
-                <textarea type="text" rows={5} />
+                <textarea type="text" rows={5} value={fill.email} />
               </fieldset>
               <div className="submit-btn">
                 <button>Submit</button>
+                <button onClick={fillData}>Fill data</button>
+                <button onClick={clearData}>clear data</button>
               </div>
             </div>
           </div>
